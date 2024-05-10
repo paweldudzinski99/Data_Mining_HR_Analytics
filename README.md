@@ -2,7 +2,8 @@
 
 ## Projekt Grupowania Studentów z Wykorzystaniem Sztucznej Inteligencji
 
-Ten projekt ma na celu wykorzystanie sztucznej inteligencji (AI) do grupowania studentów na podstawie ich przydatności do różnych zadań, biorąc pod uwagę ich znajomość programów oraz odpowiedzi z ankiety.
+Ten projekt ma na celu wykorzystanie Nienazdorowanego Uczenia Maszynowego do grupowania respondentów ankiety deklarowanych umiejętności Data Science.
+Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondentów, co z kolei ma wspomoagać proces przypisywania ludzi do projektów pod kątem potrzeb projektowych.
 
 ## Opis
 
