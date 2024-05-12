@@ -1,4 +1,4 @@
-# SzczuryKanalowe
+# Data Mining HR Analytics
 
 ## Projekt Grupowania Studentów z Wykorzystaniem Sztucznej Inteligencji
 
