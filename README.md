@@ -7,4 +7,4 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
 
 ## Opis
 
-W środowisku akademickim lub zawodowym często istotne jest stworzenie efektywnych zespołów do zadań lub projektów. Ten system oparty na AI będzie analizował umiejętności studentów oraz odpowiedzi z ankiety, aby zalecać optymalne składy grupowe oparte na ich zdolnościach i preferencjach.
+W środowisku akademickim lub zawodowym często istotne jest stworzenie efektywnych zespołów do zadań lub projektów. Ten system oparty na uczeniu maszynowym będzie analizował umiejętności studentów oraz odpowiedzi z ankiety, aby zalecać optymalne składy grupowe oparte na ich zdolnościach i preferencjach.
