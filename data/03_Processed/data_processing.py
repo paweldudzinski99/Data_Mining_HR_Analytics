@@ -18,8 +18,10 @@ qualitative_df = df[columns_to_keep]
 condition = (df['W jaki sposób chcesz uczestniczyć w Community?'] == 'Chcę uczestniczyć w projekcie data i organizować "życie" Community')
 value_if_true = 1
 value_if_false = 0
-
 quantative_df['Organizowanie życia community'] = np.where(condition, value_if_true, value_if_false)
+
+qualitative_df = qualitative_df.replace('', 'Brak odpowiedzi')
+qualitative_df = qualitative_df.fillna('Brak odpowiedzi')
 
 new_file_path1 = r'03_Processed\02_ProcessedData_Quantative.csv'
 quantative_df.to_csv(new_file_path1, index=False)
