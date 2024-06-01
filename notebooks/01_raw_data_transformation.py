@@ -21,6 +21,6 @@ filtered_df = filtered_df.drop(columns_to_drop, axis=1)
 
 print(filtered_df)
 
-new_file_path = r'02_Interim\01_SelectedFeatures.csv'
+new_file_path = r'01_Raw\01_SelectedFeatures.csv'
 filtered_df.to_csv(new_file_path, index=False)
 print("File created succesfully")
