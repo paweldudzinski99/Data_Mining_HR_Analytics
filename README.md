@@ -39,6 +39,7 @@ System oparty na uczeniu maszynowym będzie analizował kompetencje studentów o
 <h2>📉 Wizualizacja Danych</h2>
 
 <h2> Wstępne wnioski z eksploracji danych <h2>
+
 Najwyższe korelacje odpowiedzi mają: Docker-Bash-CLI, NLP-Classical ML, FashionTech-Sport-Tech, HR - Non-profit.
 Zaś najniższe: PowerBI-GIT.
 
