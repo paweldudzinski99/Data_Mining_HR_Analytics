@@ -23,7 +23,9 @@ ratings_distribution = ratings_distribution.sort_values(by=sort_order, ascending
 ratings_distribution = ratings_distribution.iloc[::-1]
 
 #Plotting the stacked bar chart
-ax = ratings_distribution.plot(kind='barh', stacked=True, title='Distribution of Ratings for Each Skill', figsize=(12, 8))
+blue_palette = sns.color_palette("pastel", 5)
+ax = ratings_distribution.plot(kind='barh', stacked=True, title='Distribution of Ratings for Each Skill', 
+                               color=blue_palette, figsize=(12, 8))
 plt.xticks(rotation=45, ha='right')
 plt.tight_layout()
 plt.xlabel('Skills')
@@ -34,7 +36,6 @@ plt.legend(title='Rating', loc='upper left', bbox_to_anchor=(1, 1))
 os.chdir('..')
 plt.savefig(r'figures\03_survey_answer_distrtibution.png', bbox_inches='tight')
 plt.show()
-
 
 #Creating a correlation matrix heatmap
 correlation_df = df[columns]
