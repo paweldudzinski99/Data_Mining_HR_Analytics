@@ -40,11 +40,12 @@ System oparty na uczeniu maszynowym będzie analizował kompetencje studentów o
 
 <h2> Wstępne wnioski z eksploracji danych </h2>
 
-Najwyższe korelacje odpowiedzi mają: Docker-Bash-CLI, NLP-Classical ML, FashionTech-Sport-Tech, HR - Non-profit; zaś najniższe: PowerBI-GIT.
+* Najwyższe korelacje odpowiedzi mają: Docker - Bash- CLI, NLP - Classical ML, FashionTech - Sport-Tech, HR - Non-profit
+* Najniższe korelacje miała para PowerBI - GIT.
 
-SQL, GIT, Python i PowerBI mają najwięcej osób, które uznają się za mentorów. Mentorów nie ma dla Azure, finansowania, Tableau, AWS, PropTech, SportTech, Cybersecurity i FashionTech.
-Obszary z największą osobą chetnych do ich nauki są: NoSQL, AWS, Azure, Tableu, GPC, HealthTech, ale warto zaznaczyc, że każdy obszar ma znaczący udział osób, które chcą się go uczyć.
-Obszarami z największą ilością osób, które nie słyszały o danym obszarze są TimeSeries, Computer Vision, Docker, Bash, NLP, Classical ML i Fashiontech. Każda z pytanych osób słyszała o Pythonie.
-Największym udziałem osób niezainterestowanych odznaczyły się Projektowanie graficzne, Social Media, HR, administracja UEW, Ux/UI, finansowanie, Front-End.
+* SQL, GIT, Python i PowerBI mają najwięcej osób, które uznają się za mentorów. Mentorów nie ma dla Azure, finansowania, Tableau, AWS, PropTech, SportTech, Cybersecurity i FashionTech.
+* Obszary z największą osobą chetnych do ich nauki są: NoSQL, AWS, Azure, Tableu, GPC, HealthTech, ale warto zaznaczyc, że każdy obszar ma znaczący udział osób, które chcą się go uczyć.
+* Obszarami z największą ilością osób, które nie słyszały o danym obszarze są TimeSeries, Computer Vision, Docker, Bash, NLP, Classical ML i Fashiontech. Każda z pytanych osób słyszała o Pythonie.
+* Największym udziałem osób niezainterestowanych odznaczyły się Projektowanie graficzne, Social Media, HR, administracja UEW, Ux/UI, finansowanie, Front-End.
 
 <h2>↪️ Rezultat</h2>
