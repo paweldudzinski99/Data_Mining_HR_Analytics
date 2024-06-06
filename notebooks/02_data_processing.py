@@ -11,10 +11,6 @@ file_name = os.path.join('02_Interim', '01_SelectedFeatures.csv')
 file_path = os.path.join(data_dir, file_name)
 df = pd.read_csv(file_path)
 
-#Finding file
-os.chdir(r'data')
-file_name = r'02_Interim\01_SelectedFeatures.csv'
-df = pd.read_csv(file_name)
 df.info()
 
 #Choosing columns to drop and keep for easier splitting into two dataframes
