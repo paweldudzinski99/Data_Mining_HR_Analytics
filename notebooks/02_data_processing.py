@@ -2,6 +2,15 @@ import pandas as pd
 import os
 import numpy as np
 
+#Defining root path
+repo_root = os.path.dirname(os.path.abspath(__name__))
+
+#Loading and reading the raw data
+data_dir = os.path.join(repo_root, 'data')
+file_name = os.path.join('02_Interim', '01_SelectedFeatures.csv')
+file_path = os.path.join(data_dir, file_name)
+df = pd.read_csv(file_path)
+
 #Finding file
 os.chdir(r'data')
 file_name = r'02_Interim\01_SelectedFeatures.csv'
@@ -29,10 +38,10 @@ qualitative_df = qualitative_df.replace('', 'Brak odpowiedzi')
 qualitative_df = qualitative_df.fillna('Brak odpowiedzi')
 
 #Creating files
-new_file_path1 = r'03_Processed\02_ProcessedData_Quantative.csv'
-quantative_df.to_csv(new_file_path1, index=False)
-print("File created succesfully")
+processed_dir = os.path.join(repo_root, 'data', '03_Processed')
 
-new_file_path2 = r'03_Processed\02_ProcessedData_Qualitative.csv'
+new_file_path = os.path.join(processed_dir, '02_ProcessedData_Quantative.csv')
+quantative_df.to_csv(new_file_path, index=False)
+
+new_file_path2 = os.path.join(processed_dir, '02_ProcessedData_Qualitative.csv')
 qualitative_df.to_csv(new_file_path2, index=False)
-print("File created succesfully")
