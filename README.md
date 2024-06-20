@@ -38,6 +38,50 @@ System oparty na uczeniu maszynowym będzie analizował kompetencje studentów o
 
 <h2>📉 Wizualizacja Danych</h2>
 
+<h3>Liczba brakujących danych</h3>
+
+Na początku przeglądu danych, przeprowadziliśmy analizę brakujących wartości. Poniżej znajduje się wykres słupkowy (bar chart), który prezentuje liczbę brakujących wartości w poszczególnych kolumnach.
+Z analizy wykresu wynika, że w dwóch kolumnach nie ma żadnych danych. Z tego powodu można te kolumny całkowicie usunąć z dalszej analizy.
+
+<p align="center">
+  <img src="figures/01_missing_val_bar_chart.png" alt="Zdjęcie przykładowe" width="900"/>
+</p>
+
+<h3>Mapa brakujących danych</h3>
+<br>
+Następny wykres ukazuje dokładną mapę odpowiedziAnaliza brakujących danych wskazuje, że niektóre osoby przerwały wypełnianie ankiety po odpowiedzi na pytanie o preferowany sposób uczestnictwa, zostając być biernymi obserwatorami. Z tego powodu odrzucamy tych respondentów, ponieważ interesują nas jedynie aktywni uczestnicy. Dzięki temu możemy skupić się na osobach, które wyraziły chęć aktywnego uczestnictwa, co pozwala nam lepiej dostosować nasze rozwiązania.
+
+<p align="center">
+  <img src="figures/01_missing_val_heatmap.png" alt="Zdjęcie przykładowe" width="900"/>
+</p>
+
+<h3>Macierz korelacji Spearmana</h3>
+<br>
+Kolejną wizualizacją jest macierz korelacji Spearmana. Umożliwia on identyfikację silnych i słabych powiązań między różnymi umiejętnościami i dziedzinami. Wysokie wartości dodatnie sugerują, że osoby posiadające jedną umiejętność często posiadają również drugą, podczas gdy wysokie wartości ujemne sugerują, że posiadanie jednej umiejętności wyklucza posiadanie drugiej. Brak korelacji sugeruje, że zmienne są od siebie niezależne.
+
+<p align="center">
+  <img src="figures/03_spearman_rank_correlation_matrix.png" alt="Zdjęcie przykładowe" width="900"/>
+</p>
+
+Umiejętnościami najbardziej skorelowanymi są:
+
+* Bash i Python: 0.66.<br>
+* GIT i Bash: 0.73.<br>
+* Docker i GIT: 0.75.<br>
+* CLI i Bash: 0.91 - najwyższa korelacja.<br>
+* NoSQL i SQL: 0.54.<br>
+* NLP i Classical ML: 0.83.<br>
+
+<h3>Dystrybucja umiejętności</h3>
+Analizując wyniki ankiety, można zauważyć, że umiejętności związane z SQL cieszą się największym uznaniem wśród respondentów. Następnie na liście znajdują się GIT oraz Python, co jest zgodne z oczekiwaniami w grupie zajmującej się projektami związanymi z AI i machine learningiem, gdzie Python odgrywa kluczową rolę jako główny język programowania.</br>
+
+Dodatkowo, najmniejsze zainteresowanie wśród ankietowanych wywołują tematy związane z HR, administracją oraz projektowaniem graficznym. Te obszary są najmniej znane lub najmniej preferowane przez uczestników ankiety.</br>
+
+Szczególną uwagę zwracają także umiejętności, które są najmniej znane wśród respondentów, takie jak Time series, Docker oraz Computer vision. Warto zauważyć, że mimo ich niskiego poziomu znajomości, mogą one okazać się niezwykle użyteczne przy realizacji niektórych projektów, zwłaszcza w kontekście zadań związanych z analizą szeregów czasowych, wirtualizacją aplikacji czy rozpoznawaniem obrazów.</br>
+
+<p align="center">
+  <img src="figures/03_survey_answer_distrtibution.png" alt="Zdjęcie przykładowe" width="900"/>
+</p>
 <h2> Wstępne wnioski z eksploracji danych </h2>
 
   * Najwyższe korelacje odpowiedzi mają: Docker - Bash- CLI, NLP - Classical ML, FashionTech - Sport-Tech, HR - Non-profit
