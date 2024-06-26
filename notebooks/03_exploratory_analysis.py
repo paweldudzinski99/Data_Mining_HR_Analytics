@@ -49,6 +49,60 @@ save_path = os.path.join(figures_dir, '03_survey_answer_distrtibution.png')
 plt.savefig(save_path, bbox_inches='tight')
 plt.show()
 
+#Creating groups
+groups = {
+    'Programming': ['CLI', 'Docker', 'Front End', 'Bash', 'Python', 'R', 'GIT'],
+    'Area': ['Classical ML', 'Computer Vision', 'NLP', 'Time Series', 'PowerBI', 'Tableau'],
+    'Soft Skills': ['Relacje z Biznesem', 'Relacje z naukowcami', 'finansowania', 'Project Management', 'Projektowanie graficzne', 'Social Media', 'Ux/Ui', 'administracją UEW'],
+    'Cloud & DBs': ['AWS', 'Azure', 'GPC', 'NoSQL', 'SQL'],
+    'Domain': ['Cybersecurity', 'E-commerce', 'FashionTech', 'FinTech', 'HealthTech', 'HR', 'Non-profit', 'PropTech', 'SportTech']
+}
+
+#Extracting the list of columns based on groups
+ordered_columns = [col for group in groups.values() for col in group]
+#Reordering the DataFrame columns based on groups
+df_ordered = df[ordered_columns]
+
+#Creating Spearman rank correlation matrix
+correlation_df = df_ordered
+correlation = correlation_df.corr(method='spearman')
+
+plt.figure(figsize=(16, 12), dpi=100)
+plt.title('Spearman Rank Correlation Matrix')
+plt.rcParams.update({'font.size': 8})
+mask = np.triu(np.ones_like(correlation, dtype=bool))
+
+sns.heatmap(correlation, cmap='coolwarm', vmin=-1, vmax=1, center=0, annot=True, mask=mask, fmt='.2f', 
+            xticklabels=ordered_columns, yticklabels=ordered_columns)
+
+#Adding lines to separate the groups
+current_index = 0
+for group, columns in groups.items():
+    next_index = current_index + len(columns)
+    plt.axhline(y=next_index, color='black', linewidth=2)
+    plt.axvline(x=next_index, color='black', linewidth=2)
+    current_index = next_index
+
+#Adding group names
+for i, (group, columns) in enumerate(groups.items()):
+    group_start = ordered_columns.index(columns[0])
+    group_end = ordered_columns.index(columns[-1])
+    group_center = (group_start + group_end) / 2
+    plt.text(group_center, len(ordered_columns) + 7, group, ha='center', va='center', color='black', fontsize=11,
+             bbox=dict(facecolor='white', alpha=0.2, boxstyle='round,pad=0.2'))
+
+plt.tight_layout()
+plt.subplots_adjust(bottom=0.2)
+
+#Saving the chart
+figures_dir = os.path.join(repo_root, 'figures')
+
+save_path = os.path.join(figures_dir, '03_spearman_rank_correlation_matrix_grouped.png')
+plt.savefig(save_path, bbox_inches='tight')
+plt.show()
+
+
+
 #Creating spearman rank correlation matrix
 correlation_df = df[columns]
 correlation = correlation_df.corr(method='spearman')
