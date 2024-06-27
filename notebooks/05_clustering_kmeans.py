@@ -87,7 +87,7 @@ def run():
     sns.scatterplot(x=df_skills_pca[:, 0], y=df_skills_pca[:, 1], hue=df['Cluster'], palette='tab10', s=100)
     for i, id in enumerate(df['ID']):
         plt.text(df_skills_pca[i, 0], df_skills_pca[i, 1], id, fontsize=9, ha='center', va='center')
-    plt.title('Clusters of Skill Ratings in PCA-reduced Space / Zgrupowanie danych w dwóch wymiarach z zastowowaniem głównych składowych')
+    plt.title('Clusters of Skill Ratings in PCA-reduced Space / Zgrupowanie w dwóch wymiarach')
     plt.xlabel('PCA Component 1 / Główna składowa 1')
     plt.ylabel('PCA Component 2 / Główna składowa 2')
     
@@ -114,7 +114,7 @@ def run():
         ax.text(df_skills_pca[i, 0], df_skills_pca[i, 1], df_skills_pca[i, 2], id, fontsize=8, ha='center', va='center')
 
     # Adding labels
-    ax.set_title('3D Scatter Plot of Clusters / Wykres 3-wymiarowy zgrupowania danych')
+    ax.set_title('3D Scatter Plot of Clusters / Wykres 3-wymiarowy zgrupowania')
     ax.set_xlabel('PCA Component 1 / Główna składowa 1')
     ax.set_ylabel('PCA Component 2 / Główna składowa 2')
     ax.set_zlabel('PCA Component 3 / Główna składowa 3')
@@ -206,7 +206,7 @@ def run():
     sns.scatterplot(x=df_skills_pca[:, 0], y=df_skills_pca[:, 1], hue=df['Cluster'], palette='tab10', s=100)
     for i, id in enumerate(df['ID']):
         plt.text(df_skills_pca[i, 0], df_skills_pca[i, 1], id, fontsize=9, ha='center', va='center')
-    plt.title('Clusters of Skill Ratings in PCA-reduced Space (no soft skills) / Zgrupowanie danych w dwóch wymiarach z zastowowaniem głównych składowych (bez umiej. miękkich)')
+    plt.title('Clusters of Skill Ratings in PCA-reduced Space (no soft skills) / Zgrupowanie w dwóch wymiarach (bez umiej. miękkich)')
     plt.xlabel('PCA Component 1 / Główna składowa 1')
     plt.ylabel('PCA Component 2 / Główna składowa 2')
 
@@ -232,7 +232,7 @@ def run():
         ax.text(df_skills_pca[i, 0], df_skills_pca[i, 1], df_skills_pca[i, 2], id, fontsize=8, ha='center', va='center')
 
     # Adding labels
-    ax.set_title('3D Scatter Plot of Clusters (no soft skills) / Wykres 3-wymiarowy zgrupowania danych (bez umiej. miękkich)')
+    ax.set_title('3D Scatter Plot of Clusters (no soft skills) / Wykres 3-wymiarowy zgrupowania (bez umiej. miękkich)')
     ax.set_xlabel('PCA Component 1 / Główna składowa 1')
     ax.set_ylabel('PCA Component 2 / Główna składowa 2')
     ax.set_zlabel('PCA Component 3 / Główna składowa 3')
