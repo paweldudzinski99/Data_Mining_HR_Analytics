@@ -10,7 +10,7 @@ def run():
 
     #Loading and reading the raw data
     data_dir = os.path.join(repo_root, 'data')
-    file_name = os.path.join('01_Raw', '01_DataCompetencySurvey.csv')
+    file_name = os.path.join('01_Raw', 'DataCompetencySurvey.csv')
     file_path = os.path.join(data_dir, file_name)
     df = pd.read_csv(file_path)
 
