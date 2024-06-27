@@ -2,11 +2,19 @@
 
 <h1 style="border: none; padding: 0; margin: 0;">Data Mining HR Analytics</h1>
 
-
+---
 
 <h2 style="border: none; padding: 0; margin: 0;">↘️ Opis projektu</h2>
 
+---
 
+<style>
+  h1, h2 {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+</style>
 <div style="text-align: justify;">
 <strong>Projekt Grupowania Studentów</strong> ma na celu wykorzystanie <strong>Nienazdorowanego Uczenia Maszynowego</strong> do grupowania respondentów na podstawie zadeklarowanych w ankiecie umiejętności Data Science.
 Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondentów, co z kolei ma wspomagać proces przypisywania ludzi do projektów pod kątem potrzeb projektowych tzn. przypisanie uczestników do grup z podziałem na:
