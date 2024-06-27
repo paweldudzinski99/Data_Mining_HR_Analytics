@@ -35,6 +35,7 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
 - [↪️ Klastrowanie](#️-klastrowanie)
   - [(emoji) Grupowanie hierarchiczne](#emoji-grupowanie-hierarchiczne)
   - [(emoji) Metoda k-średnich](#emoji-metoda-k-średnich)
+- [↪️ Rezultat](#️-rezultat)
 
 ## 🔢 Opis danych ## 
 
@@ -185,6 +186,7 @@ Po odrzuceniu umiejętności miękkich otrzymano poniższy wykres osypiska. Z ni
   <img src="figures/05_elbow_method_no_soft_skills.png" alt="Wykres osypiska bez umiej. miękkich" width="900"/>
 </p>
 
+Po zastosowaniu metody k-średnich otrzymano klastry widoczne na zdjęciach.
 
 <p align="center">
   <img src="figures/05_2d_plot_no_soft_skills.png" alt="Wykres 2D bez umiej k-means. miękkich" width="900"/>
@@ -195,7 +197,8 @@ Po odrzuceniu umiejętności miękkich otrzymano poniższy wykres osypiska. Z ni
 </p>
 
 
-<h2>↪️ Rezultat</h2>
+## ↪️ Rezultat ##
 
+Wykonana analiza skupień wyznaczyła ID osób, o podobnych odpowiedziach w ankiecie dotyczącej umiejętności. Spośród nich można dobierać osoby do grup w zależności od charakterystyki danego projektu. Z wykresów dwuwymiarowych odczytywać można, że osoby zbliżające się do prawego górnego rogu wykresu, to osoby, które są zainteresowane prawie każdą dziedziną oraz w wielu aspetkach uważają się za mentorów, co oznacza, że te osoby mogą być stawiane w pozycjach liderskich. Im bliżej lewej strony wykresu, tym więcej pojawia się niezainteresowania wśród respondentóW. Osoby po przeciwnych stronach osi X (góra i dół) wykazują odwrotne zainteresowanie.
 
 </span>
