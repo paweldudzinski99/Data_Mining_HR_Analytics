@@ -1,4 +1,3 @@
-
 def run():
     
     import os
@@ -18,28 +17,46 @@ def run():
     file_path = os.path.join(data_dir, file_name)
     df = pd.read_csv(file_path)
 
-    print(df)
-
     # Dropping undesired columns
     df_skills = df.drop(columns=['ID', 'Organizowanie życia community'])
 
-    # Replace 0 with 1 and 1 with 0 to be more logical
-    df_skills_rep = df_skills.replace({0: 1, 1: 0})
-
-    # Standardize the data
-    scaler = StandardScaler()
-    df_skills_scaled = scaler.fit_transform(df_skills_rep)
-
     # Calculating distance matrix (using Euclidean distance)
-    distance_matrix = linkage(df_skills_scaled, method='complete')
+    distance_matrix = linkage(df_skills, method='ward')
 
     # Plotting dendrogram
     plt.figure(figsize=(12, 8))
     dendrogram(distance_matrix, labels=df['ID'].values, orientation='top', leaf_rotation=90)
-    threshold_distance = 14
-    plt.axhline(y=threshold_distance, color='r', linestyle='--', label=f'Threshold Distance: {threshold_distance}')
-    plt.title('Hierarchical Clustering Dendrogram')
-    plt.xlabel('Individuals')
-    plt.ylabel('Distance')
+    threshold_distance = 13.5
+    plt.axhline(y=threshold_distance, color='r', linestyle='--', label=f'Threshold Distance / Odległość wiązań: {threshold_distance}')
+    plt.title('Hierarchical Clustering Dendrogram - Ward method / Dendrogram grupowania hierarchicznego - metoda Warda')
+    plt.xlabel('ID')
+    plt.ylabel('Distance / Odległość')
     plt.legend()
+
+    #Saving the chart
+    figures_dir = os.path.join(repo_root, 'figures')
+
+    save_path = os.path.join(figures_dir, '04_dendrogram_ward_method.png')
+    plt.savefig(save_path, bbox_inches='tight')
+    plt.show()
+
+
+    # Calculating distance matrix (using Euclidean distance)
+    distance_matrix2 = linkage(df_skills, method='complete')
+
+    # Plotting dendrogram
+    plt.figure(figsize=(12, 8))
+    dendrogram(distance_matrix2, labels=df['ID'].values, orientation='top', leaf_rotation=90)
+    threshold_distance = 11.7
+    plt.axhline(y=threshold_distance, color='r', linestyle='--', label=f'Threshold Distance / Odległość wiązań: {threshold_distance}')
+    plt.title('Hierarchical Clustering Dendrogram - complete method / Dendrogram grupowania hierarchicznego - metoda pełnego wiązania')
+    plt.xlabel('ID')
+    plt.ylabel('Distance / Odległość')
+    plt.legend()
+
+    #Saving the chart
+    figures_dir = os.path.join(repo_root, 'figures')
+
+    save_path = os.path.join(figures_dir, '04_dendrogram_complete_method.png')
+    plt.savefig(save_path, bbox_inches='tight')
     plt.show()
