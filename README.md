@@ -25,14 +25,13 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
 
 <h2>⏬ Spis treści</h2>
 
-1. <a href="#opis-danych" style="color: white;">Opis danych</a>
-2. [Wizualizacja danych](#wizualizacja-danych)
+1. [🔢 Opis danych](#opis-danych)
+2. [📉 Wizualizacja danych](#wizualizacja-danych)
    * [Liczba brakujących danych](#liczba-brakujących-danych)
    * [Mapa brakujących danych](#mapa-brakujących-danych)
    * [Macierz korelacji Spearmana](#macierz-korelacji-spearmana)
    * [Dystrybucja umiejętności](#dystrybucja-umiejętności)
-3. <a href="#wstępne-wnioski-z-eksploracji-danych" style="color: white;">Wstępne wnioski z eksploracji danych</a>
-
+3. [Wstępne wnioski z eksploracji danych](#wstępne-wnioski-z-eksploracji-danych)
 
 <h2>🔢 Opis danych</h2>
 
