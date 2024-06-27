@@ -34,15 +34,15 @@ def run():
 
     #Plotting the stacked bar chart
     blue_palette = sns.color_palette("pastel", 5)
-    ax = ratings_distribution.plot(kind='barh', stacked=True, title='Distribution of Ratings for Each Skill', 
+    ax = ratings_distribution.plot(kind='barh', stacked=True, title='Distribution of Ratings for Each Skill / Rozkład ocen dla umiejętności', 
                                 color=blue_palette, figsize=(12, 8))
     plt.xticks(rotation=45, ha='right')
     plt.tight_layout()
-    plt.xlabel('Skills')
-    plt.ylabel('Count')
-    plt.legend(title='Rating', loc='upper left', bbox_to_anchor=(1, 1))
+    plt.xlabel('Count / Liczba ')
+    plt.ylabel('Skills / Umiejętności')
+    plt.legend(title='Rating / Ocena', loc='upper left', bbox_to_anchor=(1, 1))
 
-    legend_labels = ['Mentor', 'Kompetenty', 'Zainteresowany', 'Niezainteresowany', 'Nieświadomy']
+    legend_labels = ['Mentor', 'Competent / Kompetenty', 'Interested / Zainteresowany', 'Unaware / Nieświadomy', 'Uninterested / Niezainteresowany']
     legend_patches = [plt.Rectangle((0,0),1,1,fc=color) for color in blue_palette[::-1]]
     plt.legend(legend_patches, legend_labels, title='Rating', loc='upper left', bbox_to_anchor=(1, 1))
 
@@ -51,13 +51,15 @@ def run():
     plt.savefig(save_path, bbox_inches='tight')
     plt.show()
 
+
+
     #Creating groups
     groups = {
-        'Programming': ['CLI', 'Docker', 'Front End', 'Bash', 'Python', 'R', 'GIT'],
-        'Area': ['Classical ML', 'Computer Vision', 'NLP', 'Time Series', 'PowerBI', 'Tableau'],
-        'Soft Skills': ['Relacje z Biznesem', 'Relacje z naukowcami', 'finansowania', 'Project Management', 'Projektowanie graficzne', 'Social Media', 'Ux/Ui', 'administracją UEW'],
-        'Cloud & DBs': ['AWS', 'Azure', 'GPC', 'NoSQL', 'SQL'],
-        'Domain': ['Cybersecurity', 'E-commerce', 'FashionTech', 'FinTech', 'HealthTech', 'HR', 'Non-profit', 'PropTech', 'SportTech']
+        'Programming / Programowanie': ['CLI', 'Docker', 'Front End', 'Bash', 'Python', 'R', 'GIT'],
+        'Data Analysis / Analiza Danych': ['Classical ML', 'Computer Vision', 'NLP', 'Time Series', 'PowerBI', 'Tableau'],
+        'Soft Skills / Umiejętności miękkie': ['Relacje z Biznesem', 'Relacje z naukowcami', 'Pozyskiwanie finansowania', 'Project Management', 'Projektowanie graficzne', 'Social Media', 'Ux/Ui', 'Współpraca z administracją UEW'],
+        'Cloud & DBs / Chmury i bazy danych': ['AWS', 'Azure', 'GPC', 'NoSQL', 'SQL'],
+        'Industries / Branże': ['Cybersecurity', 'E-commerce', 'FashionTech', 'FinTech', 'HealthTech', 'HR', 'Non-profit', 'PropTech', 'SportTech']
     }
 
     #Extracting the list of columns based on groups
@@ -70,7 +72,7 @@ def run():
     correlation = correlation_df.corr(method='spearman')
 
     plt.figure(figsize=(16, 12), dpi=100)
-    plt.title('Spearman Rank Correlation Matrix')
+    plt.title('Spearman Rank Correlation Matrix / Macierz korelacji rang Spearmana')
     plt.rcParams.update({'font.size': 8})
     mask = np.triu(np.ones_like(correlation, dtype=bool))
 
@@ -90,7 +92,7 @@ def run():
         group_start = ordered_columns.index(columns[0])
         group_end = ordered_columns.index(columns[-1])
         group_center = (group_start + group_end) / 2
-        plt.text(group_center, len(ordered_columns) + 7, group, ha='center', va='center', color='black', fontsize=11,
+        plt.text(group_center, len(ordered_columns) + 8, group, ha='center', va='center', color='black', fontsize=8,
                 bbox=dict(facecolor='white', alpha=0.2, boxstyle='round,pad=0.2'))
 
     plt.tight_layout()
@@ -100,22 +102,5 @@ def run():
     figures_dir = os.path.join(repo_root, 'figures')
 
     save_path = os.path.join(figures_dir, '03_spearman_rank_correlation_matrix_grouped.png')
-    plt.savefig(save_path, bbox_inches='tight')
-    plt.show()
-
-
-
-    #Creating spearman rank correlation matrix
-    correlation_df = df[columns]
-    correlation = correlation_df.corr(method='spearman')
-    plt.figure(figsize = (16,12), dpi= 100)
-    plt.title('Spearman rank correlation matrix')
-    plt.rcParams.update({'font.size': 8})
-    mask = np.triu(np.ones_like(correlation, dtype=bool))
-    sns.heatmap(correlation, cmap= 'coolwarm', vmin=-1, vmax=1, center=0, annot=True, mask=mask, fmt='.2f')
-    plt.subplots_adjust(bottom=0.2)
-
-    #Saving the chart
-    save_path = os.path.join(figures_dir, '03_spearman_rank_correlation_matrix.png')
     plt.savefig(save_path, bbox_inches='tight')
     plt.show()
