@@ -51,7 +51,7 @@ def run():
     #Bar chart indicating amount of missing values in each column
     figures_dir = os.path.join(repo_root, 'figures')
     msno.bar(df, figsize=(20, 12), fontsize=10)
-    plt.title('Missing Values Bar Chart', fontsize=14)
+    plt.title('Missing Values Bar Chart / Wykres brakujących wartości', fontsize=14)
     plt.subplots_adjust(bottom=0.3)
     save_path = os.path.join(figures_dir, '01_missing_val_bar_chart.png')
     plt.savefig(save_path)
@@ -61,7 +61,7 @@ def run():
     msno.matrix(df, figsize=(20, 12), color=(0.196, 0.537, 0.855), fontsize=10)
     plt.text(-0.15, 1.1, 'Missing value = white', fontsize=12, transform=plt.gca().transAxes,
             verticalalignment='top', horizontalalignment='left', bbox=dict(facecolor='white', alpha=0.5, edgecolor='black', boxstyle='round,pad=0.5'), fontweight='bold')
-    plt.title('Missing Values Heatmap', fontsize=14)
+    plt.title('Missing Values Heatmap / Heatmapa brakujących wartości', fontsize=14)
     plt.subplots_adjust(top=0.65)
     save_path = os.path.join(figures_dir, '01_missing_val_heatmap.png')
     plt.savefig(save_path)
