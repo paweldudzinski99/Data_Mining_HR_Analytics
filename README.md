@@ -33,6 +33,12 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
    * [Dystrybucja umiejętności](#dystrybucja-umiejętności)
 3. [Wstępne wnioski z eksploracji danych](#wstępne-wnioski-z-eksploracji-danych)
 
+## Spis treści
+1. <a href="#opis-danych">🔢 Opis danych</a>
+2. <a href="#wizualizacja-danych">📉 Wizualizacja Danych</a>
+   1. <a href="#liczba-brakujących-danych">▶️ Liczba brakujących danych</a>
+
+
 <h2>🔢 Opis danych</h2>
 
 System oparty na uczeniu maszynowym będzie analizował kompetencje studentów oraz odpowiedzi z ankiety, aby zalecać optymalne składy grupowe oparte na ich zdolnościach i preferencjach. Ankieta zawierała pytania w skali od 0 do 4 o:
