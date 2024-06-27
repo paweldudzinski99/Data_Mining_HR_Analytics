@@ -27,18 +27,20 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
 
 - [⏬ Spis treści](#-spis-treści)
 - [🔢 Opis danych](#-opis-danych)
-- [📉 Wizualizacja Danych](#-wizualizacja-danych)
+- [📉 Eksploracja danych](#-eksploracja-danych)
   - [▶️ Liczba brakujących danych](#️-liczba-brakujących-danych)
   - [▶️ Mapa brakujących danych](#️-mapa-brakujących-danych)
-  - [▶️ Macierz korelacji Spearmana](#️-macierz-korelacji-spearmana)
-  - [▶️ Dystrybucja umiejętności](#️-dystrybucja-umiejętności)
-  - [↪️ Wstępne wnioski z eksploracji danych](#️-wstępne-wnioski-z-eksploracji-danych)
+  - [▶️ Macierz korelacji rang Spearmana](#️-macierz-korelacji-rang-spearmana)
+  - [▶️ Rozkład umiejętności](#️-rozkład-umiejętności)
+- [↪️ Klastrowanie](#️-klastrowanie)
+  - [(emoji) Grupowanie hierarchiczne](#emoji-grupowanie-hierarchiczne)
+  - [(emoji) Metoda k-średnich](#emoji-metoda-k-średnich)
 
 ## 🔢 Opis danych ## 
 
 
-System oparty na uczeniu maszynowym będzie analizował kompetencje studentów oraz odpowiedzi z ankiety, aby zalecać optymalne składy grupowe oparte na ich zdolnościach i preferencjach. Ankieta zawierała pytania w skali od 0 do 4 o:
-  * umiejętności programowania w R, Python, Bash,
+System oparty na uczeniu maszynowym będzie analizował kompetencje studentów na podstawie ich odpowiedzi w ankiecie. Ankieta zawierała pytania w skali od 0 do 4 o:
+  * umiejętności programowania w R, Python, Bash
   * znajomość Version Control w GIT
   * znajomość CLI (Bash, PowerShell, CMD)
   * umiejętności projektowania Front Endu (HTML, JavaScript, CSS)
@@ -48,82 +50,152 @@ System oparty na uczeniu maszynowym będzie analizował kompetencje studentów o
   * doświadczenie w obszarach Time Series, Classical ML, NLP oraz Computer Vision
   * inne (m. in. Zarządzanie projektowe, Social Media, Ux/Ui, Projektowanie graficzne)
 
+W ankiecie skala była opisana następująco:
+* 4 - Mentor
+* 3 - Kompetentny
+* 2 - Zainteresowany
+* 1 - Niezainteresowany
+* 0 - Nieświadomy
+
+Do analiz zamienieniono wartości Niezainteresowanych i Nieświadomych - osoba Niezainteresowana powinna znaleźć się niżej w rankingu, ponieważ odrzuca ona daną dziedzinę, z kolei Nieświadomy może się nią jeszcze zainteresować.
+
 <br>
 
 <div style="text-align: right;">
     <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
 </div>
 
-## 📉 Wizualizacja Danych ##
+## 📉 Eksploracja danych ##
 ### ▶️ Liczba brakujących danych ###
 
-Na początku przeglądu danych, przeprowadziliśmy analizę brakujących wartości. Poniżej znajduje się wykres słupkowy (bar chart), który prezentuje liczbę brakujących wartości w poszczególnych kolumnach.
-Z analizy wykresu wynika, że w dwóch kolumnach nie ma żadnych danych. Z tego powodu można te kolumny całkowicie usunąć z dalszej analizy.
+Na początku przeglądu danych, przeprowadzono analizę brakujących wartości. Poniżej znajduje się wykres słupkowy, który prezentuje liczbę brakujących wartości w poszczególnych kolumnach.
+Z analizy wykresu wynika, że w dwóch kolumnach nie ma żadnych danych. Z tego powodu można te kolumny całkowicie usunąć z dalszej analizy. <br>
+<p align="center">
+  <img src="figures/01_missing_val_bar_chart.png" alt="Wykres brakujących wartości" width="900"/>
+</p>
 <div style="text-align: right;">
     <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
 </div>
-<br>
-<p align="center">
-  <img src="figures/01_missing_val_bar_chart.png" alt="Zdjęcie przykładowe" width="900"/>
-</p>
 
 ### ▶️ Mapa brakujących danych ###
 
-Następny wykres ukazuje dokładną mapę odpowiedziAnaliza brakujących danych wskazuje, że niektóre osoby przerwały wypełnianie ankiety po odpowiedzi na pytanie o preferowany sposób uczestnictwa, zostając być biernymi obserwatorami. Z tego powodu odrzucamy tych respondentów, ponieważ interesują nas jedynie aktywni uczestnicy. Dzięki temu możemy skupić się na osobach, które wyraziły chęć aktywnego uczestnictwa, co pozwala nam lepiej dostosować nasze rozwiązania.
-<div style="text-align: right;">
-    <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
-</div>
-<br>
+Następny wykres ukazuje dokładną mapę odpowiedzi. Analiza brakujących danych wskazuje, że niektóre osoby przerwały wypełnianie ankiety po odpowiedzi na pytanie o preferowany sposób uczestnictwa, pozostając biernymi obserwatorami. Z tego powodu odrzucono tych respondentów, ponieważ do analizy należy wziąć jedynie aktywnych uczestników. Dzięki temu można skupić się na osobach, które wyraziły chęć aktywnego uczestnictwa.<br>
 <p align="center">
-  <img src="figures/01_missing_val_heatmap.png" alt="Zdjęcie przykładowe" width="900"/>
+  <img src="figures/01_missing_val_heatmap.png" alt="Heatmapa brakujących wartości" width="900"/>
 </p>
-
-### ▶️ Macierz korelacji Spearmana ###
-Kolejną wizualizacją jest macierz korelacji Spearmana. Umożliwia on identyfikację silnych i słabych powiązań między różnymi umiejętnościami i dziedzinami. Wysokie wartości dodatnie sugerują, że osoby posiadające jedną umiejętność często posiadają również drugą, podczas gdy wysokie wartości ujemne sugerują, że posiadanie jednej umiejętności wyklucza posiadanie drugiej. Brak korelacji sugeruje, że zmienne są od siebie niezależne.
 <div style="text-align: right;">
     <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
 </div>
-<br>
+
+### ▶️ Macierz korelacji rang Spearmana ###
+Macierz korelacji rang Spearmana umożliwia identyfikację silnych i słabych powiązań między różnymi umiejętnościami i dziedzinami. Wysokie wartości dodatnie sugerują, że osoby posiadające jedną umiejętność często posiadają również drugą, podczas gdy wysokie wartości ujemne sugerują, że posiadanie jednej umiejętności wyklucza posiadanie drugiej. Brak korelacji sugeruje, że zmienne są od siebie niezależne.
+
+Dziedziny, o które pytano w ankiecie, przypisano do poniższych kategorii:
+* Programowanie
+* Analiza Danych
+* Umiejętności miękkie
+* Chmury i bazy danych
+* Branże
 
 <p align="center">
-  <img src="figures/03_spearman_rank_correlation_matrix_grouped.png" alt="Zdjęcie przykładowe" width="900"/>
+  <img src="figures/03_spearman_rank_correlation_matrix_grouped.png" alt="Macierz korelacji rang Spearmana" width="900"/>
 </p>
 
 Umiejętnościami najbardziej skorelowanymi są:
 
-* Bash i Python: 0.66.<br>
-* GIT i Bash: 0.73.<br>
-* Docker i GIT: 0.75.<br>
-* CLI i Bash: 0.91 - najwyższa korelacja.<br>
-* NoSQL i SQL: 0.54.<br>
-* NLP i Classical ML: 0.83.<br>
+* Docker - Bash - CLI
+* Classical ML - NLP
+* Computer Vision - Times Series - NLP
 
-### ▶️ Dystrybucja umiejętności ###
-Analizując wyniki ankiety, można zauważyć, że umiejętności związane z SQL cieszą się największym uznaniem wśród respondentów. Następnie na liście znajdują się GIT oraz Python, co jest zgodne z oczekiwaniami w grupie zajmującej się projektami związanymi z AI i machine learningiem, gdzie Python odgrywa kluczową rolę jako główny język programowania.</br>
+Najbardziej wykluczają się Ux/Ui z PowerBI oraz Projektowanie graficzne z AWS, jednak nie są to wysokie ujemne korelacje.
 
-Dodatkowo, najmniejsze zainteresowanie wśród ankietowanych wywołują tematy związane z HR, administracją oraz projektowaniem graficznym. Te obszary są najmniej znane lub najmniej preferowane przez uczestników ankiety.</br>
-
-Szczególną uwagę zwracają także umiejętności, które są najmniej znane wśród respondentów, takie jak Time series, Docker oraz Computer vision. Warto zauważyć, że mimo ich niskiego poziomu znajomości, mogą one okazać się niezwykle użyteczne przy realizacji niektórych projektów, zwłaszcza w kontekście zadań związanych z analizą szeregów czasowych, wirtualizacją aplikacji czy rozpoznawaniem obrazów.</br>
 <div style="text-align: right;">
     <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
 </div>
 <br>
+
+### ▶️ Rozkład umiejętności ###
+
+Analizując wyniki ankiety, można zauważyć, że umiejętności związane z SQL cieszą się największym uznaniem wśród respondentów - nie ma ani jednej osoby niezainteresowanej tym językiem. GIT i Python to dwie dziedziny, w których jest stosunkowo dużo mentorów i osób kompetentnych. Najmniejsze zainteresowanie przyciągają Social Media, projektowanie graficzne i HR.</br>
+
+Szczególną uwagę zwracają także umiejętności, które są najmniej znane wśród respondentów, takie jak Time series, Docker, Bash czy Computer vision. Warto zauważyć, że mimo wysokiego poziomu nieznajomości, mogą one okazać się niezwykle użyteczne przy realizacji niektórych projektów, zwłaszcza w kontekście zadań związanych z analizą szeregów czasowych, wirtualizacją aplikacji czy rozpoznawaniem obrazów.</br>
+
+Obszary z największą osobą chetnych do nauki są NoSQL, AWS, Azure, Tableu, GPC, HealthTech, ale warto zaznaczyc, że każdy obszar ma znaczący udział osób, które chcą się go nauczyć.</br>
+
 <p align="center">
-  <img src="figures/03_survey_answer_distrtibution.png" alt="Zdjęcie przykładowe" width="900"/>
+  <img src="figures/03_survey_answer_distrtibution.png" alt="Rozkład ocen dla umiejętności" width="900"/>
 </p>
 
-### ↪️ Wstępne wnioski z eksploracji danych ###
-
-  * Najwyższe korelacje odpowiedzi mają: Docker - Bash- CLI, NLP - Classical ML, FashionTech - Sport-Tech, HR - Non-profit
-  * Najniższe korelacje miała para PowerBI - GIT.
-
-  * SQL, GIT, Python i PowerBI mają najwięcej osób, które uznają się za mentorów. Mentorów nie ma dla Azure, finansowania, Tableau, AWS, PropTech, SportTech, Cybersecurity i FashionTech.
-  * Obszary z największą osobą chetnych do ich nauki są: NoSQL, AWS, Azure, Tableu, GPC, HealthTech, ale warto zaznaczyc, że każdy obszar ma znaczący udział osób, które chcą się go uczyć.
-  * Obszarami z największą ilością osób, które nie słyszały o danym obszarze są TimeSeries, Computer Vision, Docker, Bash, NLP, Classical ML i Fashiontech. Każda z pytanych osób słyszała o Pythonie.
-  * Największym udziałem osób niezainterestowanych odznaczyły się Projektowanie graficzne, Social Media, HR, administracja UEW, Ux/UI, finansowanie, Front-End.
 <div style="text-align: right;">
     <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
 </div>
+<br>
+
+## ↪️ Klastrowanie ##
+
+Do zgrupowania respondentów zastosowano dwie metody: grupowanie hierarchiczne oraz metodę k-średnich.
+
+Każdą z analiz wykonywano dwa razy - ze wszystkimi dziedzinami oraz bez umiejętności miękkich. Uznano, że odrzucenie tych umiejętności pozwoli na grupowanie z punktu widzenia umiejętności twardych. Przedstawione zostaną klastry w obu wariantach.
+
+### (emoji) Grupowanie hierarchiczne ###
+
+Testowano wiele metod grupowania hierarchicznego, jednak finalnie uznano, że godna uwagi jest popularna w tego typu badaniach metoda Warda
+
+Poniższy dendrogram przedstawia przypisanie osób z do klastrów. Linia przerywana odległości wiązań przedstawia przykładowy punkt podziału. Byłoby to pięć grup - dwie bardziej liczne i trzy mniej liczne.
+
+<p align="center">
+  <img src="figures/04_dendrogram_ward_method.png" alt="Dendrogram - metoda Warda" width="900"/>
+</p>
+
+
+
+Po odrzuceniu umiejętności miękkich liczba optymalnych klastrów spada do trzech, co przedstawia poniższy wykres:
+<p align="center">
+  <img src="figures/04_dendrogram_ward_method_no_soft_skills.png" alt="Dendrogram - metoda Warda (bez umiej. miękkich)" width="900"/>
+</p>
+
+<div style="text-align: right;">
+    <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
+</div>
+
+### (emoji) Metoda k-średnich ###
+Do tej metody w pierwszej kolejności należy wyznaczyć liczbę klastrów, do których będzie wykonywane grupowanie. W tym celu zastosowano tzw. wykres osypiska. Miejsce "załamania" wykresu wyznacza optymalną liczbę klastrów.
+
+Dla wszystkich dziedzin z ankiety wykres przedstawiono poniżej. Z tak ułożonego wykresu nie da się jednoznacznie określić, gdzie następuje załamanie. Przyjęto 6 klastrów.
+
+<p align="center">
+  <img src="figures/05_elbow_method.png" alt="Wykres osypiska" width="900"/>
+</p>
+
+Po zastosowaniu metody k-średnich otrzymano klastry widoczne na zdjęciach.
+
+<p align="center">
+  <img src="figures/05_2d_plot.png" alt="Wykres 2D k-means" width="900"/>
+</p>
+
+
+<p align="center">
+  <img src="figures/05_3d_plot.png" alt="Wykres 3D k-means" width="900"/>
+</p>
+
+
+Po odrzuceniu umiejętności miękkich otrzymano poniższy wykres osypiska. Z niego odczytano, że pięć to będzie optymalna liczba klastrów.
+
+<p align="center">
+  <img src="figures/05_elbow_method_no_soft_skills.png" alt="Wykres osypiska bez umiej. miękkich" width="900"/>
+</p>
+
+
+<p align="center">
+  <img src="figures/05_2d_plot_no_soft_skills.png" alt="Wykres 2D bez umiej k-means. miękkich" width="900"/>
+</p>
+
+<p align="center">
+  <img src="figures/05_3d_plot_no_soft_skills.png" alt="Wykres 3D bez umiej. miękkich k-means" width="900"/>
+</p>
+
+
 <h2>↪️ Rezultat</h2>
+
 
 </span>
