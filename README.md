@@ -1,3 +1,6 @@
+<span style="font-family: 'Verdana', sans-serif;">
+
+
 <img align="left" src="https://cdn-icons-png.freepik.com/512/8618/8618881.png" width="180">
 
 <h1 style="border: none; padding: 0; margin: 0;">Data Mining HR Analytics</h1>
@@ -7,14 +10,6 @@
 <h2 style="border: none; padding: 0; margin: 0;">↘️ Opis projektu</h2>
 
 ---
-
-<style>
-  h1, h2 {
-    border: none;
-    margin: 0;
-    padding: 0;
-  }
-</style>
 <div style="text-align: justify;">
 <strong>Projekt Grupowania Studentów</strong> ma na celu wykorzystanie <strong>Nienazdorowanego Uczenia Maszynowego</strong> do grupowania respondentów na podstawie zadeklarowanych w ankiecie umiejętności Data Science.
 Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondentów, co z kolei ma wspomagać proces przypisywania ludzi do projektów pod kątem potrzeb projektowych tzn. przypisanie uczestników do grup z podziałem na:
@@ -29,6 +24,15 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
 <br>
 
 <h2>⏬ Spis treści</h2>
+
+1. <a href="#opis-danych" style="color: white;">Opis danych</a>
+2. [Wizualizacja danych](#wizualizacja-danych)
+   * [Liczba brakujących danych](#liczba-brakujących-danych)
+   * [Mapa brakujących danych](#mapa-brakujących-danych)
+   * [Macierz korelacji Spearmana](#macierz-korelacji-spearmana)
+   * [Dystrybucja umiejętności](#dystrybucja-umiejętności)
+3. <a href="#wstępne-wnioski-z-eksploracji-danych" style="color: white;">Wstępne wnioski z eksploracji danych</a>
+
 
 <h2>🔢 Opis danych</h2>
 
@@ -46,7 +50,7 @@ System oparty na uczeniu maszynowym będzie analizował kompetencje studentów o
 
 <h2>📉 Wizualizacja Danych</h2>
 
-<h3>Liczba brakujących danych</h3>
+<h3>▶️ Liczba brakujących danych</h3>
 
 Na początku przeglądu danych, przeprowadziliśmy analizę brakujących wartości. Poniżej znajduje się wykres słupkowy (bar chart), który prezentuje liczbę brakujących wartości w poszczególnych kolumnach.
 Z analizy wykresu wynika, że w dwóch kolumnach nie ma żadnych danych. Z tego powodu można te kolumny całkowicie usunąć z dalszej analizy.
@@ -55,20 +59,21 @@ Z analizy wykresu wynika, że w dwóch kolumnach nie ma żadnych danych. Z tego 
   <img src="figures/01_missing_val_bar_chart.png" alt="Zdjęcie przykładowe" width="900"/>
 </p>
 
-<h3>Mapa brakujących danych</h3>
-<br>
+<h3>▶️ Mapa brakujących danych</h3>
+
 Następny wykres ukazuje dokładną mapę odpowiedziAnaliza brakujących danych wskazuje, że niektóre osoby przerwały wypełnianie ankiety po odpowiedzi na pytanie o preferowany sposób uczestnictwa, zostając być biernymi obserwatorami. Z tego powodu odrzucamy tych respondentów, ponieważ interesują nas jedynie aktywni uczestnicy. Dzięki temu możemy skupić się na osobach, które wyraziły chęć aktywnego uczestnictwa, co pozwala nam lepiej dostosować nasze rozwiązania.
 
 <p align="center">
   <img src="figures/01_missing_val_heatmap.png" alt="Zdjęcie przykładowe" width="900"/>
 </p>
 
-<h3>Macierz korelacji Spearmana</h3>
-<br>
+<h3>▶️ Macierz korelacji Spearmana</h3>
 Kolejną wizualizacją jest macierz korelacji Spearmana. Umożliwia on identyfikację silnych i słabych powiązań między różnymi umiejętnościami i dziedzinami. Wysokie wartości dodatnie sugerują, że osoby posiadające jedną umiejętność często posiadają również drugą, podczas gdy wysokie wartości ujemne sugerują, że posiadanie jednej umiejętności wyklucza posiadanie drugiej. Brak korelacji sugeruje, że zmienne są od siebie niezależne.
 
+<br>
+
 <p align="center">
-  <img src="figures/03_spearman_rank_correlation_matrix.png" alt="Zdjęcie przykładowe" width="900"/>
+  <img src="figures/03_spearman_rank_correlation_matrix_grouped.png" alt="Zdjęcie przykładowe" width="900"/>
 </p>
 
 Umiejętnościami najbardziej skorelowanymi są:
@@ -80,7 +85,7 @@ Umiejętnościami najbardziej skorelowanymi są:
 * NoSQL i SQL: 0.54.<br>
 * NLP i Classical ML: 0.83.<br>
 
-<h3>Dystrybucja umiejętności</h3>
+<h3>▶️ Dystrybucja umiejętności</h3>
 Analizując wyniki ankiety, można zauważyć, że umiejętności związane z SQL cieszą się największym uznaniem wśród respondentów. Następnie na liście znajdują się GIT oraz Python, co jest zgodne z oczekiwaniami w grupie zajmującej się projektami związanymi z AI i machine learningiem, gdzie Python odgrywa kluczową rolę jako główny język programowania.</br>
 
 Dodatkowo, najmniejsze zainteresowanie wśród ankietowanych wywołują tematy związane z HR, administracją oraz projektowaniem graficznym. Te obszary są najmniej znane lub najmniej preferowane przez uczestników ankiety.</br>
@@ -90,7 +95,7 @@ Szczególną uwagę zwracają także umiejętności, które są najmniej znane w
 <p align="center">
   <img src="figures/03_survey_answer_distrtibution.png" alt="Zdjęcie przykładowe" width="900"/>
 </p>
-<h2> Wstępne wnioski z eksploracji danych </h2>
+<h2>↪️ Wstępne wnioski z eksploracji danych </h2>
 
   * Najwyższe korelacje odpowiedzi mają: Docker - Bash- CLI, NLP - Classical ML, FashionTech - Sport-Tech, HR - Non-profit
   * Najniższe korelacje miała para PowerBI - GIT.
@@ -101,3 +106,5 @@ Szczególną uwagę zwracają także umiejętności, które są najmniej znane w
   * Największym udziałem osób niezainterestowanych odznaczyły się Projektowanie graficzne, Social Media, HR, administracja UEW, Ux/UI, finansowanie, Front-End.
 
 <h2>↪️ Rezultat</h2>
+
+</span>
