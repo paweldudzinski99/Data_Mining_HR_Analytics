@@ -66,6 +66,8 @@ Do analiz zamienieniono wartości Niezainteresowanych i Nieświadomych - osoba N
     <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
 </div>
 
+<div align="right"><a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a></div>
+
 ## 📉 Eksploracja danych ##
 ### ▶️ Liczba brakujących danych ###
 
