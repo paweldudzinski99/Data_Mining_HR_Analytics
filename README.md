@@ -34,8 +34,8 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
   - [▶️ Macierz korelacji rang Spearmana](#️-macierz-korelacji-rang-spearmana)
   - [▶️ Rozkład umiejętności](#️-rozkład-umiejętności)
 - [↪️ Klastrowanie](#️-klastrowanie)
-  - [⏫ Grupowanie hierarchiczne](#emoji-grupowanie-hierarchiczne)
-  - [🔼 Metoda k-średnich](#emoji-metoda-k-średnich)
+  - [⏫ Grupowanie hierarchiczne](#-grupowanie-hierarchiczne)
+  - [🔼 Metoda k-średnich](#-metoda-k-średnich)
 - [↪️ Rezultat](#️-rezultat)
 
 ## 🔢 Opis danych ## 
@@ -61,13 +61,6 @@ W ankiecie skala była opisana następująco:
 
 Do analiz zamienieniono wartości Niezainteresowanych i Nieświadomych - osoba Niezainteresowana powinna znaleźć się niżej w rankingu, ponieważ odrzuca ona daną dziedzinę, z kolei Nieświadomy może się nią jeszcze zainteresować.
 
-<br>
-
-<div style="text-align: right;">
-    <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
-</div>
-
-<div align="right"><a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a></div>
 
 ## 📉 Eksploracja danych ##
 ### ▶️ Liczba brakujących danych ###
@@ -77,9 +70,7 @@ Z analizy wykresu wynika, że w dwóch kolumnach nie ma żadnych danych. Z tego 
 <p align="center">
   <img src="figures/01_missing_val_bar_chart.png" alt="Wykres brakujących wartości" width="900"/>
 </p>
-<div style="text-align: right;">
-    <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
-</div>
+
 
 ### ▶️ Mapa brakujących danych ###
 
@@ -87,9 +78,7 @@ Następny wykres ukazuje dokładną mapę odpowiedzi. Analiza brakujących danyc
 <p align="center">
   <img src="figures/01_missing_val_heatmap.png" alt="Heatmapa brakujących wartości" width="900"/>
 </p>
-<div style="text-align: right;">
-    <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
-</div>
+
 
 ### ▶️ Macierz korelacji rang Spearmana ###
 Macierz korelacji rang Spearmana umożliwia identyfikację silnych i słabych powiązań między różnymi umiejętnościami i dziedzinami. Wysokie wartości dodatnie sugerują, że osoby posiadające jedną umiejętność często posiadają również drugą, podczas gdy wysokie wartości ujemne sugerują, że posiadanie jednej umiejętności wyklucza posiadanie drugiej. Brak korelacji sugeruje, że zmienne są od siebie niezależne.
@@ -113,9 +102,6 @@ Umiejętnościami najbardziej skorelowanymi są:
 
 Najbardziej wykluczają się Ux/Ui z PowerBI oraz Projektowanie graficzne z AWS, jednak nie są to wysokie ujemne korelacje.
 
-<div style="text-align: right;">
-    <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
-</div>
 <br>
 
 ### ▶️ Rozkład umiejętności ###
@@ -130,9 +116,7 @@ Obszary z największą osobą chetnych do nauki są NoSQL, AWS, Azure, Tableu, G
   <img src="figures/03_survey_answer_distrtibution.png" alt="Rozkład ocen dla umiejętności" width="900"/>
 </p>
 
-<div style="text-align: right;">
-    <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
-</div>
+
 <br>
 
 ## ↪️ Klastrowanie ##
@@ -158,9 +142,6 @@ Po odrzuceniu umiejętności miękkich liczba optymalnych klastrów spada do trz
   <img src="figures/04_dendrogram_ward_method_no_soft_skills.png" alt="Dendrogram - metoda Warda (bez umiej. miękkich)" width="900"/>
 </p>
 
-<div style="text-align: right;">
-    <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
-</div>
 
 ### 🔼 Metoda k-średnich ###
 Do tej metody w pierwszej kolejności należy wyznaczyć liczbę klastrów, do których będzie wykonywane grupowanie. W tym celu zastosowano tzw. wykres osypiska. Miejsce "załamania" wykresu wyznacza optymalną liczbę klastrów.
