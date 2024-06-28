@@ -110,7 +110,7 @@ Analizując wyniki ankiety, można zauważyć, że umiejętności związane z SQ
 
 Szczególną uwagę zwracają także umiejętności, które są najmniej znane wśród respondentów, takie jak Time series, Docker, Bash czy Computer vision. Warto zauważyć, że mimo wysokiego poziomu nieznajomości, mogą one okazać się niezwykle użyteczne przy realizacji niektórych projektów, zwłaszcza w kontekście zadań związanych z analizą szeregów czasowych, wirtualizacją aplikacji czy rozpoznawaniem obrazów.</br>
 
-Obszary z największą osobą chetnych do nauki są NoSQL, AWS, Azure, Tableu, GPC, HealthTech, ale warto zaznaczyc, że każdy obszar ma znaczący udział osób, które chcą się go nauczyć.</br>
+Obszary z największą ilością osób chętnych do nauki są NoSQL, AWS, Azure, Tableu, GPC, HealthTech, ale warto zaznaczyć, że każdy obszar ma znaczący udział osób, które chcą się go nauczyć.</br>
 
 <p align="center">
   <img src="figures/03_survey_answer_distrtibution.png" alt="Rozkład ocen dla umiejętności" width="900"/>
@@ -127,9 +127,9 @@ Każdą z analiz wykonywano dwa razy - ze wszystkimi dziedzinami oraz bez umiej�
 
 ### ⏫ Grupowanie hierarchiczne ###
 
-Testowano wiele metod grupowania hierarchicznego, jednak finalnie uznano, że godna uwagi jest popularna w tego typu badaniach metoda Warda
+Testowano wiele metod grupowania hierarchicznego, jednak finalnie uznano, że godna uwagi jest popularna w tego typu badaniach metoda Warda.
 
-Poniższy dendrogram przedstawia przypisanie osób z do klastrów. Linia przerywana odległości wiązań przedstawia przykładowy punkt podziału. Byłoby to pięć grup - dwie bardziej liczne i trzy mniej liczne.
+Poniższy dendrogram przedstawia przypisanie osób do klastrów. Linia przerywana odległości wiązań przedstawia przykładowy punkt podziału. Byłoby to pięć grup - dwie bardziej liczne i trzy mniej liczne.
 
 <p align="center">
   <img src="figures/04_dendrogram_ward_method.png" alt="Dendrogram - metoda Warda" width="900"/>
