@@ -20,6 +20,7 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
 * Osoby średniozaawansowane, 
 * Początkujących (zainteresowanych) nauką,
 * Niezainteresowanych danym narzędziem
+* Nieświadomych istnienia narzędzia
 
 <br>
 
@@ -33,8 +34,8 @@ Celem modelowania jest znalezienie optymalnej liczby grup (klastrów) respondent
   - [▶️ Macierz korelacji rang Spearmana](#️-macierz-korelacji-rang-spearmana)
   - [▶️ Rozkład umiejętności](#️-rozkład-umiejętności)
 - [↪️ Klastrowanie](#️-klastrowanie)
-  - [(emoji) Grupowanie hierarchiczne](#emoji-grupowanie-hierarchiczne)
-  - [(emoji) Metoda k-średnich](#emoji-metoda-k-średnich)
+  - [⏫ Grupowanie hierarchiczne](#emoji-grupowanie-hierarchiczne)
+  - [🔼 Metoda k-średnich](#emoji-metoda-k-średnich)
 - [↪️ Rezultat](#️-rezultat)
 
 ## 🔢 Opis danych ## 
@@ -140,7 +141,7 @@ Do zgrupowania respondentów zastosowano dwie metody: grupowanie hierarchiczne o
 
 Każdą z analiz wykonywano dwa razy - ze wszystkimi dziedzinami oraz bez umiejętności miękkich. Uznano, że odrzucenie tych umiejętności pozwoli na grupowanie z punktu widzenia umiejętności twardych. Przedstawione zostaną klastry w obu wariantach.
 
-### (emoji) Grupowanie hierarchiczne ###
+### ⏫ Grupowanie hierarchiczne ###
 
 Testowano wiele metod grupowania hierarchicznego, jednak finalnie uznano, że godna uwagi jest popularna w tego typu badaniach metoda Warda
 
@@ -161,7 +162,7 @@ Po odrzuceniu umiejętności miękkich liczba optymalnych klastrów spada do trz
     <a href="#⏬-spis-treści" style="color: grey;">wróć na górę</a>
 </div>
 
-### (emoji) Metoda k-średnich ###
+### 🔼 Metoda k-średnich ###
 Do tej metody w pierwszej kolejności należy wyznaczyć liczbę klastrów, do których będzie wykonywane grupowanie. W tym celu zastosowano tzw. wykres osypiska. Miejsce "załamania" wykresu wyznacza optymalną liczbę klastrów.
 
 Dla wszystkich dziedzin z ankiety wykres przedstawiono poniżej. Z tak ułożonego wykresu nie da się jednoznacznie określić, gdzie następuje załamanie. Przyjęto 6 klastrów.
